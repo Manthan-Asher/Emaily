@@ -3,5 +3,6 @@ module.exports = {
   googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
   mongoURL: process.env.MONGO_URL,
   cookieKeys: process.env.COOKIE_KEYS,
-  googleRedirectURL: process.env.GOOGLE_REDIRECT_URL,
+  googleRedirectURL:
+    "https://limitless-ocean-56071.herokuapp.com/auth/google/callback",
 };
