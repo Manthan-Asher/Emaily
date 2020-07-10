@@ -20,8 +20,11 @@ passport.use(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: keys.googleRedirectURL,
+      callbackURL: process.env.NODE_ENV
+        ? "https://limitless-ocean-56071.herokuapp.com/auth/google/callback"
+        : "http://localhost:5000/auth/google/callback",
       userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+      proxy: true,
     },
     async (accessToken, refreshtoken, profile, done) => {
       const user = await User.findOne({googleId: profile.id});
