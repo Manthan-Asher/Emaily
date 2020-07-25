@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
-const {initialize} = require("passport");
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
 const app = express();
@@ -27,6 +27,7 @@ mongoose.connect(keys.mongoURL, {
 
 require("./routes/auth")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 if (process.env.NODE_ENV === "production") {
   // express will serve up production assets
